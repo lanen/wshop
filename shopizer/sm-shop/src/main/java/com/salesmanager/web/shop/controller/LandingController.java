@@ -38,31 +38,40 @@ import com.salesmanager.web.utils.LabelUtils;
 
 @Controller
 public class LandingController {
-	
-	
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(LandingController.class);
+
 	private final static String LANDING_PAGE = "LANDING_PAGE";
-	
-	
+
+	private final static String HOME_LINK_CODE="HOME";
+
 	@Autowired
 	private ContentService contentService;
-	
+
 	@Autowired
 	private ProductRelationshipService productRelationshipService;
 
-	
 	@Autowired
 	private LabelUtils messages;
-	
+
 	@Autowired
 	private PricingService pricingService;
-	
+
 	@Autowired
 	private MerchantStoreService merchantService;
-	
-	private static final Logger LOGGER = LoggerFactory.getLogger(LandingController.class);
-	private final static String HOME_LINK_CODE="HOME";
-	
-	@RequestMapping(value={Constants.SHOP_URI + "/home.html",Constants.SHOP_URI +"/", Constants.SHOP_URI}, method=RequestMethod.GET)
+
+
+	/**
+	 * 展示首页
+	 * @param model
+	 * @param request
+	 * @param response
+	 * @param locale
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value={Constants.SHOP_URI + "/home.html",Constants.SHOP_URI +"/", Constants.SHOP_URI},
+			method=RequestMethod.GET)
 	public String displayLanding(Model model, HttpServletRequest request, HttpServletResponse response, Locale locale) throws Exception {
 		
 		Language language = (Language)request.getAttribute(Constants.LANGUAGE);

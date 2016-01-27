@@ -39,12 +39,12 @@
 	
 	<beans:bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
  		<beans:property name="viewClass">
-  			<beans:value>org.springframework.web.servlet.view.tiles2.TilesView</beans:value> 
+  			<beans:value>org.springframework.web.servlet.view.tiles3.TilesView</beans:value>
   		</beans:property>
   	</beans:bean>
 
 
-	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
  			<beans:property name="definitions">
  				<beans:list>
   					<beans:value>/WEB-INF/tiles/tiles-admin.xml</beans:value>

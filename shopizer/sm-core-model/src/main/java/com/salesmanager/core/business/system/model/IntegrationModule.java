@@ -6,16 +6,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.TableGenerator;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
 
@@ -54,13 +45,15 @@ public class IntegrationModule extends SalesManagerEntity<Long, IntegrationModul
 	
 	@Column(name="REGIONS")
 	private String regions;
-	
+
+	@Lob
 	@Column(name="CONFIGURATION")
-	@Type(type = "org.hibernate.type.StringClobType")
+	//@Type(type = "org.hibernate.type.StringClobType")
 	private String configuration;
-	
+
+	@Lob
 	@Column(name="DETAILS")
-	@Type(type = "org.hibernate.type.StringClobType")
+//	@Type(type = "org.hibernate.type.StringClobType")
 	private String configDetails;
 	
 	@Column(name="TYPE")

@@ -1,11 +1,6 @@
 package com.salesmanager.core.business.customer.model.attribute;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
 
@@ -26,9 +21,10 @@ public class CustomerOptionDescription extends Description {
 	@ManyToOne(targetEntity = CustomerOption.class)
 	@JoinColumn(name = "CUSTOMER_OPTION_ID", nullable = false)
 	private CustomerOption customerOption;
-	
+
+	@Lob
 	@Column(name="CUSTOMER_OPTION_COMMENT")
-	@Type(type = "org.hibernate.type.StringClobType")
+	//@Type(type = "org.hibernate.type.StringClobType")
 	private String customerOptionComment;
 	
 

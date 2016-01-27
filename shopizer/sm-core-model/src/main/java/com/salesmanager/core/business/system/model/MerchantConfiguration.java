@@ -2,21 +2,7 @@ package com.salesmanager.core.business.system.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.TableGenerator;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
 
@@ -59,9 +45,9 @@ public class MerchantConfiguration extends SalesManagerEntity<Long, MerchantConf
 	@Column(name="CONFIG_KEY")
 	private String key;
 
-	
+	@Lob
 	@Column(name="VALUE")
-	@Type(type = "org.hibernate.type.StringClobType")
+//	@Type(type = "org.hibernate.type.StringClobType")
 	private String value;
 	
 	@Column(name="TYPE")

@@ -2,17 +2,7 @@ package com.salesmanager.core.business.order.model;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.TableGenerator;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
 
@@ -42,9 +32,10 @@ public class OrderTotal extends SalesManagerEntity<Long, OrderTotal> {
 	
 	@Column (name ="TITLE", nullable=true)
 	private String title;
-	
+
+	@Lob
 	@Column (name ="TEXT", nullable=true)
-	@Type(type = "org.hibernate.type.StringClobType")
+	//@Type(type = "org.hibernate.type.StringClobType")
 	private String text;
 	
 	@Column (name ="VALUE", precision=15, scale=4, nullable=false )

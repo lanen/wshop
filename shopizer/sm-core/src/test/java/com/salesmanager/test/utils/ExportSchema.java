@@ -1,17 +1,13 @@
 package com.salesmanager.test.utils;
 
-import java.util.Map;
-
-import javax.persistence.spi.PersistenceUnitInfo;
-
-import org.hibernate.ejb.Ejb3Configuration;
-import org.hibernate.tool.hbm2ddl.SchemaExport;
+import com.salesmanager.test.core.AbstractSalesManagerCoreTestCase;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
-import com.salesmanager.test.core.AbstractSalesManagerCoreTestCase;
+import javax.persistence.spi.PersistenceUnitInfo;
+import java.util.Map;
 
 
 
@@ -37,12 +33,12 @@ public class ExportSchema extends AbstractSalesManagerCoreTestCase {
 	    PersistenceUnitInfo persistenceUnitInfo = entityManagerFactory.getPersistenceUnitInfo();
 	    Map jpaPropertyMap = entityManagerFactory.getJpaPropertyMap();
 
-	    @SuppressWarnings("deprecation")
-		org.hibernate.cfg.Configuration configuration = new Ejb3Configuration().configure( persistenceUnitInfo, jpaPropertyMap ).getHibernateConfiguration();
-
-	    SchemaExport schema = new SchemaExport(configuration);
-	    schema.setOutputFile("c:/schema.sql");
-	    schema.create(true, false);
+//	    @SuppressWarnings("deprecation")
+//		org.hibernate.cfg.Configuration configuration = new Ejb3Configuration().configure( persistenceUnitInfo, jpaPropertyMap ).getHibernateConfiguration();
+//
+//	    SchemaExport schema = new SchemaExport(configuration);
+//	    schema.setOutputFile("c:/schema.sql");
+//	    schema.create(true, false);
 
 		
 	}

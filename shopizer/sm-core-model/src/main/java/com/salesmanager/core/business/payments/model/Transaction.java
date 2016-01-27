@@ -6,23 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.TableGenerator;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.hibernate.annotations.Type;
@@ -78,9 +62,10 @@ public class Transaction extends SalesManagerEntity<Long, Transaction> implement
 	@Column(name="PAYMENT_TYPE")
 	@Enumerated(value = EnumType.STRING)
 	private PaymentType paymentType;
-	
+
+	@Lob
 	@Column(name="DETAILS")
-	@Type(type = "org.hibernate.type.StringClobType")
+	//@Type(type = "org.hibernate.type.StringClobType")
 	private String details;
 	
 	@Transient

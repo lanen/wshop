@@ -3,26 +3,6 @@
  */
 package com.salesmanager.web.shop.controller.customer.facade;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.Validate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
-
 import com.salesmanager.core.business.catalog.product.service.PricingService;
 import com.salesmanager.core.business.catalog.product.service.ProductService;
 import com.salesmanager.core.business.catalog.product.service.attribute.ProductAttributeService;
@@ -56,14 +36,27 @@ import com.salesmanager.web.entity.customer.CustomerEntity;
 import com.salesmanager.web.entity.customer.PersistableCustomer;
 import com.salesmanager.web.entity.customer.ReadableCustomer;
 import com.salesmanager.web.entity.shoppingcart.ShoppingCartData;
-import com.salesmanager.web.populator.customer.CustomerBillingAddressPopulator;
-import com.salesmanager.web.populator.customer.CustomerDeliveryAddressPopulator;
-import com.salesmanager.web.populator.customer.CustomerEntityPopulator;
-import com.salesmanager.web.populator.customer.CustomerPopulator;
-import com.salesmanager.web.populator.customer.PersistableCustomerBillingAddressPopulator;
-import com.salesmanager.web.populator.customer.PersistableCustomerShippingAddressPopulator;
-import com.salesmanager.web.populator.customer.ReadableCustomerPopulator;
+import com.salesmanager.web.populator.customer.*;
 import com.salesmanager.web.populator.shoppingCart.ShoppingCartDataPopulator;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.Validate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -139,7 +132,6 @@ public class CustomerFacadeImpl implements CustomerFacade
      * Customer username is unique to each store.
      *
      * @param userName
-     * @param storeCode
      * @throws ConversionException
      */
     @Override
@@ -406,7 +398,8 @@ public class CustomerFacadeImpl implements CustomerFacade
 			Validate.notNull(customer, "Customer cannot be null");
 
         	Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-			GrantedAuthority role = new GrantedAuthorityImpl(Constants.PERMISSION_CUSTOMER_AUTHENTICATED);//required to login
+
+			GrantedAuthority role = new SimpleGrantedAuthority(Constants.PERMISSION_CUSTOMER_AUTHENTICATED);//required to login
 			authorities.add(role); 
 			List<Integer> groupsId = new ArrayList<Integer>();
 			List<Group> groups = customer.getGroups();
@@ -418,7 +411,7 @@ public class CustomerFacadeImpl implements CustomerFacade
 				if(groupsId!=null && groupsId.size()>0) {
 			    	List<Permission> permissions = permissionService.getPermissions(groupsId);
 			    	for(Permission permission : permissions) {
-			    		GrantedAuthority auth = new GrantedAuthorityImpl(permission.getPermissionName());
+			    		GrantedAuthority auth = new SimpleGrantedAuthority(permission.getPermissionName());
 			    		authorities.add(auth);
 			    	}
 				}

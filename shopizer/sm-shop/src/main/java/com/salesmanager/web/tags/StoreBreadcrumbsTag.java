@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import com.salesmanager.web.constants.Constants;
 import com.salesmanager.web.entity.shop.Breadcrumb;
 
-import edu.emory.mathcs.backport.java.util.Arrays;
+import java.util.Arrays;
 
 public class StoreBreadcrumbsTag extends TagSupport {
 	

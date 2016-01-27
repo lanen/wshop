@@ -2,18 +2,7 @@ package com.salesmanager.core.business.common.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.TableGenerator;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -48,9 +37,10 @@ public class Description implements Auditable, Serializable {
 	
 	@Column(name="TITLE", length=100)
 	private String title;
-	
+
+	@Lob
 	@Column(name="DESCRIPTION")
-	@Type(type = "org.hibernate.type.StringClobType")
+	//@Type(type = "org.hibernate.type.StringClobType")
 	private String description;
 	
 	public Description() {

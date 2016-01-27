@@ -42,7 +42,7 @@
 </appender>
        
 <logger name="com.salesmanager.web" additivity="false">
-		<level value="debug"/>
+		<level value="INFO"/>
 		<appender-ref ref="WEB" />
 </logger>
 
@@ -56,7 +56,7 @@
 </appender>
 
 <root>
-		<priority value="debug" />
+		<priority value="info" />
 		<appender-ref ref="CONSOLE" />
 </root>
        

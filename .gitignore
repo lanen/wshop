@@ -1,0 +1,8 @@
+target
+.idea
+*.iml
+.project
+.classpath
+shopizer/sm-shop/data
+shopizer/sm-shop/infinispan
+

@@ -1,21 +1,5 @@
 package com.salesmanager.web.admin.security;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-
 import com.salesmanager.core.business.merchant.model.MerchantStore;
 import com.salesmanager.core.business.merchant.service.MerchantStoreService;
 import com.salesmanager.core.business.user.model.Group;
@@ -25,6 +9,21 @@ import com.salesmanager.core.business.user.service.GroupService;
 import com.salesmanager.core.business.user.service.PermissionService;
 import com.salesmanager.core.business.user.service.UserService;
 import com.salesmanager.web.constants.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 /**
@@ -73,7 +72,7 @@ public class UserServicesImpl implements WebUserServices{
 				return null;
 			}
 
-			GrantedAuthority role = new GrantedAuthorityImpl(Constants.PERMISSION_AUTHENTICATED);//required to login
+			GrantedAuthority role = new SimpleGrantedAuthority(Constants.PERMISSION_AUTHENTICATED);//required to login
 			authorities.add(role);
 	
 			List<Integer> groupsId = new ArrayList<Integer>();
@@ -89,7 +88,7 @@ public class UserServicesImpl implements WebUserServices{
 	    	
 	    	List<Permission> permissions = permissionService.getPermissions(groupsId);
 	    	for(Permission permission : permissions) {
-	    		GrantedAuthority auth = new GrantedAuthorityImpl(permission.getPermissionName());
+	    		GrantedAuthority auth = new SimpleGrantedAuthority(permission.getPermissionName());
 	    		authorities.add(auth);
 	    	}
     	
