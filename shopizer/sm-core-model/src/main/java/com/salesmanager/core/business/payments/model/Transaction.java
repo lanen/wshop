@@ -8,8 +8,7 @@ import java.util.Map;
 
 import javax.persistence.*;
 
-import org.codehaus.jackson.map.ObjectMapper;
-import org.hibernate.annotations.Type;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONAware;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

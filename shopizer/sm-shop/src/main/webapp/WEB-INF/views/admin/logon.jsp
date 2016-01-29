@@ -71,14 +71,15 @@
 
 
 
+				<link rel="shortcut icon" href="<c:url value="/favicon.ico" />" type="image/x-icon" />
 
 				<link
 					href="<c:url value="/resources/css/bootstrap/css/sm-bootstrap.css" />"
 					rel="stylesheet" />
 				<link
-					href="<c:url value="/resources/css/sm-bootstrap-responsive.css" />"
+					href="<c:url value="/resources/css/bootstrap/css/sm-bootstrap-responsive.css" />"
 					rel="stylesheet" />
-				<link href="<c:url value="/resources/css/shopizer.css" />"
+				<link href="<c:url value="/resources/css/shopizer-admin.css" />"
 					rel="stylesheet" />
 
 
@@ -130,7 +131,7 @@
 					$.ajax({
 							type: 'POST',
 							dataType: "json",
-							url: "<c:url value="/admin/users/resetPassword.html" />",
+							url: "<c:url value="/admin/users/resetPassword.json" />",
 							data: "username="+ userName ,
 							success: function(response) { 
 								 var msg = isc.XMLTools.selectObjects(response, "/response/statusMessage");
@@ -185,7 +186,7 @@
 						 $.ajax({
 									type: 'POST',
 									dataType: "json",
-									url: "<c:url value="/admin/users/resetPasswordSecurityQtn.html" />",
+									url: "<c:url value="/admin/users/resetPasswordSecurityQtn.json" />",
 									data: "answer1="+ answer1+"&answer2="+ answer2+"&answer3="+ answer3,
 									success: function(response) { 
 										 //console.log("responcesajid "+response);
@@ -357,6 +358,7 @@
 								</div>
 								<div class="control-group">
 									<div class="controls">
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 										<label class="checkbox">
 											<input type="checkbox" id="remember">
 												<s:message code="label.logonform.rememberusername"

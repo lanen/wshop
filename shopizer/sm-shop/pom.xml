@@ -21,9 +21,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.6</jdk.version>
 		<java-version>1.6</java-version>
-		<jackson-version>1.9.13</jackson-version>
-		<fasterxml-version>2.2.3</fasterxml-version>
-		<org.springframework-version>4.1.8.RELEASE</org.springframework-version>
+		<jackson-version>2.6.5</jackson-version>
+		<fasterxml-version>2.6.5</fasterxml-version>
+		<org.springframework-version>4.2.4.RELEASE</org.springframework-version>
 		<org.springframework-security-version>4.0.3.RELEASE</org.springframework-security-version>
 		<org.aspectj-version>1.8.8</org.aspectj-version>
 		<org.slf4j-version>1.7.14</org.slf4j-version>
@@ -216,11 +216,7 @@
 		</dependency>
 
 		<!-- Jackson JSON Processor -->
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>${jackson-version}</version>
-		</dependency>
+
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
@@ -229,12 +225,12 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>${fasterxml-version}</version>
+			<version>${jackson-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>${fasterxml-version}</version>
+			<version>${jackson-version}</version>
 		</dependency>
 
 		<!-- Rome Atom+RSS -->

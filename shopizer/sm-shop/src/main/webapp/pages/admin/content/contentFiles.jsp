@@ -50,8 +50,8 @@
 				
 				<br />
 				<!-- Listing grid include -->
-				<c:set value="/admin/content/static/page.html" var="pagingUrl" scope="request" />
-				<c:set value="/admin/content/static/removeFile.html" var="removeUrl" scope="request" />
+				<c:set value="/admin/content/static/page.json" var="pagingUrl" scope="request" />
+				<c:set value="/admin/content/static/removeFile.json" var="removeUrl" scope="request" />
 				<c:set value="/admin/content/static/contentFiles.html" var="refreshUrl" scope="request" />
 				<c:set var="componentTitleKey" value="menu.content-files" scope="request" />
 				<c:set var="canRemoveEntry" value="true" scope="request" />

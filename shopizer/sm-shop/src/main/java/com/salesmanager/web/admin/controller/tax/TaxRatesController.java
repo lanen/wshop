@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -101,7 +102,7 @@ public class TaxRatesController {
 	}
 	
 	@PreAuthorize("hasRole('TAX')")
-	@RequestMapping(value = "/admin/tax/taxrates/page.html", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/admin/tax/taxrates/page.json", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody
 	String pageTaxRates(HttpServletRequest request,
 			HttpServletResponse response) {
@@ -324,7 +325,7 @@ public class TaxRatesController {
 	
 
 	@PreAuthorize("hasRole('TAX')")
-	@RequestMapping(value="/admin/tax/taxrates/remove.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/tax/taxrates/remove.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String removeTaxRate(HttpServletRequest request, Locale locale) throws Exception {
 		
 		//do not remove super admin

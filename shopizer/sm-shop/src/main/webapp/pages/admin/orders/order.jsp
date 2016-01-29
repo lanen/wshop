@@ -28,7 +28,7 @@ function displayErrorMessage(message) {
 function getZones(listDiv, textDiv, countryCode, defaultValue){
 	$.ajax({
 	  type: 'POST',
-	  url: '<c:url value="/shop/reference/provinces.html"/>',
+	  url: '<c:url value="/shop/reference/provinces.json"/>',
 	  data: 'countryCode=' + countryCode + '&lang=${requestScope.LANGUAGE.code}',
 	  dataType: 'json',
 	  success: function(response){
@@ -88,7 +88,7 @@ function listTransactions(orderId){
 
 	$.ajax({
 		  type: 'GET',
-		  url: '<c:url value="/admin/orders/listTransactions.html"/>?id=' + orderId,
+		  url: '<c:url value="/admin/orders/listTransactions.json"/>?id=' + orderId,
 		  dataType: 'json',
 		  success: function(response){
 				var status = response.response.status;
@@ -117,7 +117,7 @@ function sendInvoice(orderId){
 
 	$.ajax({
 		  type: 'GET',
-		  url: '<c:url value="/admin/orders/sendInvoice.html"/>?id=' + orderId,
+		  url: '<c:url value="/admin/orders/sendInvoice.json"/>?id=' + orderId,
 		  dataType: 'json',
 		  success: function(response){
 				var status = response.response.status;
@@ -142,7 +142,7 @@ function updateStatus(orderId){
 
 	$.ajax({
 		  type: 'GET',
-		  url: '<c:url value="/admin/orders/updateStatus.html"/>?id=' + orderId,
+		  url: '<c:url value="/admin/orders/updateStatus.json"/>?id=' + orderId,
 		  dataType: 'json',
 		  success: function(response){
 				var status = response.response.status;
@@ -173,7 +173,7 @@ function sendDownloadEmail(orderId){
 
 	$.ajax({
 		  type: 'GET',
-		  url: '<c:url value="/admin/orders/sendDownloadEmail.html"/>?id=' + orderId,
+		  url: '<c:url value="/admin/orders/sendDownloadEmail.json"/>?id=' + orderId,
 		  dataType: 'json',
 		  success: function(response){
 				var status = response.response.status;
@@ -197,7 +197,7 @@ function sendDownloadEmail(orderId){
 function captureOrder(orderId){
 	$.ajax({
 		  type: 'POST',
-		  url: '<c:url value="/admin/orders/captureOrder.html"/>?id=' + orderId,
+		  url: '<c:url value="/admin/orders/captureOrder.json"/>?id=' + orderId,
 		  dataType: 'json',
 		  success: function(response){
 				var status = response.response.status;
@@ -302,7 +302,7 @@ function captureOrder(orderId){
             var data = $(this).serializeObject();
             $.ajax({
                 'type': 'POST',
-                'url': "<c:url value="/admin/orders/refundOrder.html"/>",
+                'url': "<c:url value="/admin/orders/refundOrder.json"/>",
                 'contentType': 'application/json',
                 'data': JSON.stringify(data),
                 'dataType': 'json',
@@ -377,7 +377,7 @@ function captureOrder(orderId){
 							</c:if>
 				    	</li>
 				    	
-				    	<li><a href="<c:url value="/admin/orders/printInvoice.html?id=${order.id}" />"><s:message code="label.order.printinvoice" text="Print invoice"/></a></li>
+				    	<li><a href="<c:url value="/admin/orders/printInvoice.json?id=${order.id}" />"><s:message code="label.order.printinvoice" text="Print invoice"/></a></li>
 				    	<!-- available soon <li><a href="<c:url value="/admin/orders/printShippingLabel.html?id=${order.id}" />"><s:message code="label.order.packing" text="Print packing slip"/></a></li>-->
 				    	<li>
 				    		<c:if test="${customer!=null}">

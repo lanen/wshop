@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.6</jdk.version>
 
-		<jackson-version>1.9.13</jackson-version>
+		<jackson-version>2.6.5</jackson-version>
 		<axis-version>1.4</axis-version>
 		<jaxws.api.version>2.1</jaxws.api.version>
 		<jaxws.version>2.1.4</jaxws.version>
@@ -39,7 +39,7 @@
 		<sm-core.aspectj.version>1.8.8</sm-core.aspectj.version>
 		<sm-core.mysql-connector-java>5.1.31</sm-core.mysql-connector-java>
 		<sm-core.junit.version>4.9</sm-core.junit.version>
-		<sm-core.org.springframework.version>4.1.8.RELEASE</sm-core.org.springframework.version>
+		<sm-core.org.springframework.version>4.2.4.RELEASE</sm-core.org.springframework.version>
 		<sm-core.c3p0.version>0.9.5.2</sm-core.c3p0.version>
 		<sm-core.querydsl.version>3.7.0</sm-core.querydsl.version>
 		<sm-core.jodatime.version>2.9.1</sm-core.jodatime.version>
@@ -210,8 +210,8 @@
 
 		<!-- Jackson JSON Processor -->
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
 			<version>${jackson-version}</version>
 		</dependency>
 		<dependency>

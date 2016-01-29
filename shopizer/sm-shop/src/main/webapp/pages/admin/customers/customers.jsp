@@ -32,8 +32,8 @@
 				<br/><br/>
 
 				 <!-- Listing grid include -->
-				 <c:set value="/admin/customers/page.html" var="pagingUrl" scope="request"/>
-				 <c:set value="/admin/admin/customers/remove.html" var="removeUrl" scope="request"/>
+				 <c:set value="/admin/customers/page.json" var="pagingUrl" scope="request"/>
+				 <c:set value="/admin/customers/remove.html" var="removeUrl" scope="request"/>
 				 <c:set value="/admin/customers/customer.html" var="editUrl" scope="request"/>
 				 <c:set var="entityId" value="id" scope="request"/>
 				 <c:set var="componentTitleKey" value="label.customer.list" scope="request"/>

@@ -18,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -331,7 +332,7 @@ public class ManufacturerController {
 	
 	@SuppressWarnings("unchecked")
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/catalogue/manufacturer/paging.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/catalogue/manufacturer/paging.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String pageManufacturers(HttpServletRequest request, HttpServletResponse response) {
 		
 		AjaxResponse resp = new AjaxResponse();
@@ -372,7 +373,7 @@ public class ManufacturerController {
 	}
 	
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/catalogue/manufacturer/remove.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/catalogue/manufacturer/remove.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String deleteManufacturer(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		Long sid =  Long.valueOf(request.getParameter("id") );
 	
@@ -414,7 +415,7 @@ public class ManufacturerController {
 	
 	
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/manufacturer/checkCode.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/manufacturer/checkCode.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String checkCode(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		String code = request.getParameter("code");
 		String id = request.getParameter("id");

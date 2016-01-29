@@ -38,7 +38,7 @@ function checkReadOnlyAttribute(optionId){
 		//$('#displayOnly').removeAttr("disabled");
 		$.ajax({
 			  type: 'POST',
-			  url: '<c:url value="/admin/products/attributes/getAttributeType.html"/>',
+			  url: '<c:url value="/admin/products/attributes/getAttributeType.json"/>',
 			  data: 'optionId=' + optionId,
 			  dataType: 'json',
 			  success: function(response){

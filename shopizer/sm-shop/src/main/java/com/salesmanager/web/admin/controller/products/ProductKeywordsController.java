@@ -17,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -146,7 +147,7 @@ public class ProductKeywordsController {
 	}
 	
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/products/product/removeKeyword.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/products/product/removeKeyword.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String removeKeyword(@RequestParam("id") long productId, HttpServletRequest request, HttpServletResponse response, Locale locale) {
 
 		
@@ -239,7 +240,7 @@ public class ProductKeywordsController {
 	
 	@SuppressWarnings("unchecked")
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/products/product/keywords/paging.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/products/product/keywords/paging.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String pageKeywords(HttpServletRequest request, HttpServletResponse response) {
 		
 		String sProductId = request.getParameter("id");

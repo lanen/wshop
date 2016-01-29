@@ -24,7 +24,7 @@
 								
 								
 								<!-- Listing grid include -->
-								 <c:set value="/admin/groups/paging.html" var="pagingUrl" scope="request"/>
+								 <c:set value="/admin/groups/paging.json" var="pagingUrl" scope="request"/>
 								 <c:set value="/admin/groups/editGroup.html?id=${group.id}" var="editUrl" scope="request"/>
 								 <c:set var="entityId" value="groupId" scope="request"/>
 								 <c:set var="expandDetails" value="description" scope="request"/>

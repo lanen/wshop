@@ -77,7 +77,7 @@ $.fn.addItems = function(data) {
 function getZones(countryCode){
 	$.ajax({
 	  type: 'POST',
-	  url: '<c:url value="/admin/reference/provinces.html"/>',
+	  url: '<c:url value="/admin/reference/provinces.json"/>',
 	  data: 'countryCode=' + countryCode,
 	  dataType: 'json',
 	  success: function(response){
@@ -229,8 +229,8 @@ function getZones(countryCode){
 				            	 
 				            	 <br/><br/>
 				            	 <!-- Listing grid include -->
-								 <c:set value="/admin/tax/taxrates/page.html" var="pagingUrl" scope="request"/>
-								 <c:set value="/admin/tax/taxrates/remove.html" var="removeUrl" scope="request"/>
+								 <c:set value="/admin/tax/taxrates/page.json" var="pagingUrl" scope="request"/>
+								 <c:set value="/admin/tax/taxrates/remove.json" var="removeUrl" scope="request"/>
 								 <c:set value="/admin/tax/taxrates/list.html" var="refreshUrl" scope="request"/>
 								 <c:set value="/admin/tax/taxrates/edit.html" var="editUrl" scope="request"/>
 								 <c:set var="entityId" value="taxRateId" scope="request"/>

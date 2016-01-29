@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.simple.JSONAware;
 import org.json.simple.JSONObject;
 
@@ -34,7 +34,7 @@ public class IntegrationConfiguration implements JSONAware {
 	public String getModuleCode() {
 		return moduleCode;
 	}
-	@JsonProperty("moduleCode")  
+	@JsonProperty("moduleCode")
 	public void setModuleCode(String moduleCode) {
 		this.moduleCode = moduleCode;
 	}

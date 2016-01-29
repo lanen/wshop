@@ -42,8 +42,8 @@
 									ID:"products", 
 									dataFormat:"json", 
 									operationBindings:[ 
-										{operationType:"fetch", dataProtocol:"postParams",dataURL: "<c:url value="/admin/products/paging.html" />"},
-										{operationType:"remove", dataProtocol:"postParams",dataURL: "<c:url value="/admin/products/remove.html" />"}
+										{operationType:"fetch", dataProtocol:"postParams",dataURL: "<c:url value="/admin/products/paging.json" />"},
+										{operationType:"remove", dataProtocol:"postParams",dataURL: "<c:url value="/admin/products/remove.json" />"}
 									],
 									transformResponse : function (dsResponse, dsRequest, jsonData) {
 										var status = isc.XMLTools.selectObjects(jsonData, "/response/status");

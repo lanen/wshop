@@ -46,11 +46,11 @@
 				</div>			
 		
       			<!-- Listing grid include -->
-				 <c:set value="/admin/products/paging.html" var="pagingUrl" scope="request"/>
-				 <c:set value="/admin/catalogue/related/paging.html?productId=${productId}" var="containerFetchUrl" scope="request"/>
-				 <c:set value="/admin/catalogue/related/removeItem.html?baseProductId=${productId}" var="containerRemoveUrl" scope="request"/>
+				 <c:set value="/admin/products/paging.json" var="pagingUrl" scope="request"/>
+				 <c:set value="/admin/catalogue/related/paging.json?productId=${productId}" var="containerFetchUrl" scope="request"/>
+				 <c:set value="/admin/catalogue/related/removeItem.json?baseProductId=${productId}" var="containerRemoveUrl" scope="request"/>
 				 <c:set value="RELATED" var="removeEntity" scope="request"/>
-				 <c:set value="/admin/catalogue/related/addItem.html?baseProductId=${productId}" var="containerAddUrl" scope="request"/>
+				 <c:set value="/admin/catalogue/related/addItem.json?baseProductId=${productId}" var="containerAddUrl" scope="request"/>
 				 <c:set value="/admin/catalogue/related/update.html" var="containerUpdateUrl" scope="request"/>
 				 <c:set value="/admin/products/editProduct.html" var="editUrl" scope="request"/>
 				 <c:set value="/admin/catalogue/related/list.html?id=${productId}" var="reloadUrl" scope="request"/>

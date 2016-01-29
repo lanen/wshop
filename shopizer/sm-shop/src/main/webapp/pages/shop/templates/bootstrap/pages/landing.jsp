@@ -25,7 +25,7 @@ response.setDateHeader ("Expires", -1);
           		    </div>
 			</div>
 			</c:if>
-			
+
 			<br/>
 			<sm:shopProductGroup groupName="FEATURED_ITEM"/>
 			<sm:shopProductGroup groupName="SPECIALS"/>

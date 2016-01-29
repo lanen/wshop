@@ -47,7 +47,7 @@ $.fn.addItems = function(data) {
 function getZones(countryCode){
 	$.ajax({
 	  type: 'POST',
-	  url: '<c:url value="/admin/reference/provinces.html"/>',
+	  url: '<c:url value="/admin/reference/provinces.json"/>',
 	  data: 'countryCode=' + countryCode,
 	  dataType: 'json',
 	  success: function(response){

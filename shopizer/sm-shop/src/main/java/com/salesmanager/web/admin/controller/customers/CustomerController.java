@@ -17,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -376,7 +377,7 @@ public class CustomerController {
 	 * @throws Exception
 	 */
 	@PreAuthorize("hasRole('CUSTOMER')")
-	@RequestMapping(value={"/admin/customers/attributes/save.html"}, method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value={"/admin/customers/attributes/save.html"}, method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String saveCustomerAttributes(HttpServletRequest request, Locale locale) throws Exception {
 		
 
@@ -528,7 +529,7 @@ public class CustomerController {
 	
 	
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value="/admin/customers/page.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/customers/page.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody
 	String pageCustomers(HttpServletRequest request,HttpServletResponse response) {
 
@@ -612,7 +613,7 @@ public class CustomerController {
 	
 	
 	@PreAuthorize("hasRole('CUSTOMER')")
-	@RequestMapping(value="/admin/customers/resetPassword.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/customers/resetPassword.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody
 	String resetPassword(HttpServletRequest request,HttpServletResponse response) {
 		

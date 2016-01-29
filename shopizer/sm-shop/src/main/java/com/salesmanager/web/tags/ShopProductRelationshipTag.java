@@ -23,137 +23,136 @@ import com.salesmanager.web.constants.Constants;
 import com.salesmanager.web.entity.catalog.product.ReadableProduct;
 import com.salesmanager.web.populator.catalog.ReadableProductPopulator;
 
-public class ShopProductRelationshipTag extends RequestContextAwareTag  {
-	
-	
+/**
+ *
+ */
+public class ShopProductRelationshipTag extends RequestContextAwareTag {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ShopProductRelationshipTag.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShopProductRelationshipTag.class);
 
-	@Autowired
-	private ProductRelationshipService productRelationshipService;
-	
-	@Autowired
-	private PricingService pricingService;
-	
-	@Autowired
-	private CacheUtils cache;
-	
-	
-	private String groupName;
+    @Autowired
+    private ProductRelationshipService productRelationshipService;
+
+    @Autowired
+    private PricingService pricingService;
+
+    @Autowired
+    private CacheUtils cache;
 
 
-
-	public String getGroupName() {
-		return groupName;
-	}
+    private String groupName;
 
 
-	public void setGroupName(String groupName) {
-		this.groupName = groupName;
-	}
+    public String getGroupName() {
+        return groupName;
+    }
 
 
-	@SuppressWarnings("unchecked")
-	@Override
-	protected int doStartTagInternal() throws Exception {
-		if (productRelationshipService == null || pricingService==null) {
-			LOGGER.debug("Autowiring ProductRelationshipService");
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+
+    @SuppressWarnings("unchecked")
+    @Override
+    protected int doStartTagInternal() throws Exception {
+        if (productRelationshipService == null || pricingService == null) {
+            LOGGER.debug("Autowiring ProductRelationshipService");
             WebApplicationContext wac = getRequestContext().getWebApplicationContext();
             AutowireCapableBeanFactory factory = wac.getAutowireCapableBeanFactory();
             factory.autowireBean(this);
         }
-		
-		HttpServletRequest request = (HttpServletRequest) pageContext
-		.getRequest();
 
-		MerchantStore store = (MerchantStore)request.getAttribute(Constants.MERCHANT_STORE);
-		
-		Language language = (Language)request.getAttribute(Constants.LANGUAGE);
+        HttpServletRequest request = (HttpServletRequest) pageContext
+                .getRequest();
 
-		StringBuilder groupKey = new StringBuilder();
-		groupKey
-		.append(store.getId())
-		.append("_")
-		.append(Constants.PRODUCTS_GROUP_CACHE_KEY)
-		.append("-")
-		.append(this.getGroupName())
-		.append("_")
-		.append(language.getCode());
-		
-		StringBuilder groupKeyMissed = new StringBuilder();
-		groupKeyMissed
-		.append(groupKey.toString())
-		.append(Constants.MISSED_CACHE_KEY);
-		
-		List<ReadableProduct> objects = null;
-		
-		if(store.isUseCache()) {
-		
-			//get from the cache
-			objects = (List<ReadableProduct>) cache.getFromCache(groupKey.toString());
-			Boolean missedContent = null;
-			//if(objects==null) {
-				//get from missed cache
-			//	missedContent = (Boolean)cache.getFromCache(groupKeyMissed.toString());
-			//}
-			
-			if(objects==null && missedContent==null) {
-				objects = getProducts(request);
+        MerchantStore store = (MerchantStore) request.getAttribute(Constants.MERCHANT_STORE);
 
-				//put in cache
-				cache.putInCache(objects, groupKey.toString());
-					
-			} else {
-				//put in missed cache
-				//cache.putInCache(new Boolean(true), groupKeyMissed.toString());
-			}
-		
-		} else {
-			objects = getProducts(request);
-		}
-		if(objects!=null && objects.size()>0) {
-			request.setAttribute(this.getGroupName(), objects);
-		}
-		
-		return SKIP_BODY;
+        Language language = (Language) request.getAttribute(Constants.LANGUAGE);
 
-	}
+        StringBuilder groupKey = new StringBuilder();
+        groupKey
+                .append(store.getId())
+                .append("_")
+                .append(Constants.PRODUCTS_GROUP_CACHE_KEY)
+                .append("-")
+                .append(this.getGroupName())
+                .append("_")
+                .append(language.getCode());
+
+        StringBuilder groupKeyMissed = new StringBuilder();
+        groupKeyMissed
+                .append(groupKey.toString())
+                .append(Constants.MISSED_CACHE_KEY);
+
+        List<ReadableProduct> objects = null;
+
+        if (store.isUseCache()) {
+
+            //get from the cache
+            objects = (List<ReadableProduct>) cache.getFromCache(groupKey.toString());
+            Boolean missedContent = null;
+            //if(objects==null) {
+            //get from missed cache
+            //	missedContent = (Boolean)cache.getFromCache(groupKeyMissed.toString());
+            //}
+
+            if (objects == null && missedContent == null) {
+                objects = getProducts(request);
+
+                //put in cache
+                cache.putInCache(objects, groupKey.toString());
+
+            } else {
+                //put in missed cache
+                //cache.putInCache(new Boolean(true), groupKeyMissed.toString());
+            }
+
+        } else {
+            objects = getProducts(request);
+        }
+        if (objects != null && objects.size() > 0) {
+            request.setAttribute(this.getGroupName(), objects);
+        }
+
+        return SKIP_BODY;
+
+    }
 
 
-	public int doEndTag() {
-		return EVAL_PAGE;
-	}
-	
-	private List<ReadableProduct> getProducts(HttpServletRequest request) throws Exception {
-		
-		MerchantStore store = (MerchantStore)request.getAttribute(Constants.MERCHANT_STORE);
-		Language language = (Language)request.getAttribute(Constants.LANGUAGE);
+    public int doEndTag() {
+        return EVAL_PAGE;
+    }
 
-		List<ProductRelationship> relationships = productRelationshipService.getByGroup(store, this.getGroupName(), language);
-		
-		ReadableProductPopulator populator = new ReadableProductPopulator();
-		populator.setPricingService(pricingService);
-		
-		List<ReadableProduct> products = new ArrayList<ReadableProduct>();
-		for(ProductRelationship relationship : relationships) {
-			
-			Product product = relationship.getRelatedProduct();
-			
-			ReadableProduct proxyProduct = populator.populate(product, new ReadableProduct(), store, language);
-			//com.salesmanager.web.entity.catalog.Product proxyProduct = catalogUtils.buildProxyProduct(product, store, locale);
-			products.add(proxyProduct);
+    private List<ReadableProduct> getProducts(HttpServletRequest request) throws Exception {
 
-		}
-		
-		return products;
-		
-	}
+        MerchantStore store = (MerchantStore) request.getAttribute(Constants.MERCHANT_STORE);
+        Language language = (Language) request.getAttribute(Constants.LANGUAGE);
 
-	
+        List<ProductRelationship> relationships = productRelationshipService.getByGroup(store, this.getGroupName(), language);
+
+        ReadableProductPopulator populator = new ReadableProductPopulator();
+        populator.setPricingService(pricingService);
+
+        List<ReadableProduct> products = new ArrayList<ReadableProduct>();
+        for (ProductRelationship relationship : relationships) {
+
+            Product product = relationship.getRelatedProduct();
+
+            ReadableProduct proxyProduct = populator.populate(product, new ReadableProduct(), store, language);
+            //com.salesmanager.web.entity.catalog.Product proxyProduct = catalogUtils.buildProxyProduct(product, store, locale);
+            products.add(proxyProduct);
+
+        }
+
+        return products;
+
+    }
+
 
 }

@@ -15,6 +15,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -91,7 +92,7 @@ public class ContentImageController {
 	
 	@SuppressWarnings({ "unchecked"})
 	@PreAuthorize("hasRole('CONTENT')")
-	@RequestMapping(value="/admin/content/images/paging.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/content/images/paging.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String pageImages(HttpServletRequest request, HttpServletResponse response) {
 		AjaxResponse resp = new AjaxResponse();
 
@@ -209,7 +210,7 @@ public class ContentImageController {
 	 * @return
 	 */
 	@PreAuthorize("hasRole('CONTENT')")
-	@RequestMapping(value="/admin/content/removeImage.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/content/removeImage.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String removeImage(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		String imageName = request.getParameter("name");
 

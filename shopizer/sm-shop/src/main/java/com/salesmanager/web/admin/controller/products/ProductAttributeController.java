@@ -16,6 +16,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -99,7 +100,7 @@ public class ProductAttributeController {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/products/attributes/page.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/products/attributes/page.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String pageAttributes(HttpServletRequest request, HttpServletResponse response) {
 
 		//String attribute = request.getParameter("attribute");
@@ -403,7 +404,7 @@ public class ProductAttributeController {
 	}
 	
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/attributes/attribute/remove.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/attributes/attribute/remove.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String deleteProductPrice(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		String sAttributeid = request.getParameter("attributeId");
 
@@ -447,7 +448,7 @@ public class ProductAttributeController {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/products/attributes/getAttributeType.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/products/attributes/getAttributeType.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String checkAttributeType(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 
 		String sOptionId = request.getParameter("optionId");

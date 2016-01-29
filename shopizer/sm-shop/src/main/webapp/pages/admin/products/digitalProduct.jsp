@@ -14,7 +14,7 @@
 			$("#store.error").show();
 			$.ajax({
 			  type: 'POST',
-			  url: '<c:url value="/admin/products/product/removeDigitalProduct.html"/>?fileId=' + fileId,
+			  url: '<c:url value="/admin/products/product/removeDigitalProduct.json"/>?fileId=' + fileId,
 			  dataType: 'json',
 			  success: function(response){
 		

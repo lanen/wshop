@@ -32,6 +32,7 @@ response.setDateHeader ("Expires", -1);
     			<meta name="description" content="<c:out value="${requestScope.PAGE_INFORMATION.pageDescription}" />">
     			<meta name="author" content="<c:out value="${requestScope.MERCHANT_STORE.storename}"/>">
 
+				<link rel="shortcut icon" href="<c:url value="/favicon.ico" />" type="image/x-icon" />
 
                 <jsp:include page="/pages/shop/templates/bootstrap/sections/shopLinks.jsp" />
  	</head>

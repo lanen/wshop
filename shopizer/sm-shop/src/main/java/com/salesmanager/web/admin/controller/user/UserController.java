@@ -17,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -107,7 +108,7 @@ public class UserController {
 	 */
 	@SuppressWarnings("unchecked")
 	@PreAuthorize("hasRole('STORE_ADMIN')")
-	@RequestMapping(value = "/admin/users/paging.html", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/admin/users/paging.json", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody
 	String pageUsers(HttpServletRequest request,
 			HttpServletResponse response) {
@@ -411,7 +412,7 @@ public class UserController {
 	}
 	
 	@PreAuthorize("hasRole('AUTH')")
-	@RequestMapping(value="/admin/users/checkUserCode.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/users/checkUserCode.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String checkUserCode(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		String code = request.getParameter("code");
 		String id = request.getParameter("id");
@@ -636,7 +637,7 @@ public class UserController {
 	}
 	
 	@PreAuthorize("hasRole('AUTH')")
-	@RequestMapping(value="/admin/users/remove.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/users/remove.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String removeUser(HttpServletRequest request, Locale locale) throws Exception {
 		
 		//do not remove super admin
@@ -723,7 +724,7 @@ public class UserController {
 	}
 	
 	//password reset functionality  ---  Sajid Shajahan  
-	@RequestMapping(value="/admin/users/resetPassword.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/users/resetPassword.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String resetPassword(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		
 		AjaxResponse resp = new AjaxResponse();
@@ -777,7 +778,7 @@ public class UserController {
 		return returnString;
 	}
 	//password reset functionality  ---  Sajid Shajahan
-	@RequestMapping(value="/admin/users/resetPasswordSecurityQtn.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/users/resetPasswordSecurityQtn.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String resetPasswordSecurityQtn(@ModelAttribute(value="userReset") UserReset userReset,HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		
 		MerchantStore store = (MerchantStore)request.getAttribute(Constants.ADMIN_STORE);

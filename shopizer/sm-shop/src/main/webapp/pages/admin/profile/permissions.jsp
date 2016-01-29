@@ -24,7 +24,7 @@
 								
 								
 								 <!-- Listing grid include -->
-								 <c:set value="/admin/permissions/paging.html" var="pagingUrl" scope="request"/>
+								 <c:set value="/admin/permissions/paging.json" var="pagingUrl" scope="request"/>
 								 <c:set value="/admin/permissions/editPermission.html?id=${group.id}" var="editUrl" scope="request"/>
 								 <c:set var="entityId" value="groupId" scope="request"/>
 								 <c:set var="componentTitleKey" value="label.permissions.title" scope="request"/>

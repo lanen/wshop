@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -86,7 +87,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(OrderActionsControl
 	
 	
 	@PreAuthorize("hasRole('ORDER')")
-	@RequestMapping(value="/admin/orders/captureOrder.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/orders/captureOrder.html", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String captureOrder(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 
 
@@ -139,7 +140,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(OrderActionsControl
 	}
 	
 	@PreAuthorize("hasRole('ORDER')")
-	@RequestMapping(value="/admin/orders/refundOrder.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/orders/refundOrder.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String refundOrder(@RequestBody Refund refund, HttpServletRequest request, HttpServletResponse response, Locale locale) {
 
 
@@ -225,7 +226,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(OrderActionsControl
 	}
 	
 	@PreAuthorize("hasRole('ORDER')")
-	@RequestMapping(value="/admin/orders/printInvoice.html", method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/admin/orders/printInvoice.json", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public void printInvoice(HttpServletRequest request, HttpServletResponse response, Locale locale) throws Exception {
 		
 		String sId = request.getParameter("id");
@@ -273,7 +274,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(OrderActionsControl
 
 	@SuppressWarnings("unchecked")
 	@PreAuthorize("hasRole('ORDER')")
-	@RequestMapping(value="/admin/orders/listTransactions.html", method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/admin/orders/listTransactions.json", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String listTransactions(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		String sId = request.getParameter("id");
@@ -347,7 +348,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(OrderActionsControl
 	
 
 	@PreAuthorize("hasRole('ORDER')")
-	@RequestMapping(value="/admin/orders/sendInvoice.html", method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/admin/orders/sendInvoice.json", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String sendInvoice(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		String sId = request.getParameter("id");
@@ -358,6 +359,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(OrderActionsControl
 		
 		if(sId==null) {
 			resp.setStatus(AjaxResponse.RESPONSE_STATUS_FAIURE);
+
 			return resp.toJSONString();
 		}
 
@@ -411,7 +413,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(OrderActionsControl
 	
 
 	@PreAuthorize("hasRole('ORDER')")
-	@RequestMapping(value="/admin/orders/updateStatus.html", method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/admin/orders/updateStatus.json", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String updateStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		String sId = request.getParameter("id");
@@ -493,7 +495,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(OrderActionsControl
 	}
 	
 	@PreAuthorize("hasRole('ORDER')")
-	@RequestMapping(value="/admin/orders/sendDownloadEmail.html", method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/admin/orders/sendDownloadEmail.json", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String sendDownloadEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		String sId = request.getParameter("id");

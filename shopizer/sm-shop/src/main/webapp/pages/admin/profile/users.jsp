@@ -23,8 +23,8 @@
 								<br/>
 								
 								<!-- Listing grid include -->
-								 <c:set value="/admin/users/paging.html" var="pagingUrl" scope="request"/>
-								 <c:set value="/admin/users/remove.html" var="removeUrl" scope="request"/>
+								 <c:set value="/admin/users/paging.json" var="pagingUrl" scope="request"/>
+								 <c:set value="/admin/users/remove.json" var="removeUrl" scope="request"/>
 								 <c:set value="/admin/users/list.html" var="refreshUrl" scope="request"/>
 								 <c:set value="/admin/users/displayStoreUser.html" var="editUrl" scope="request"/>
 								 <c:set var="entityId" value="userId" scope="request"/>

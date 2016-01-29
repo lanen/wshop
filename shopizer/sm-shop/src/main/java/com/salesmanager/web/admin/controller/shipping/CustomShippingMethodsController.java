@@ -16,6 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -241,7 +242,7 @@ public class CustomShippingMethodsController {
 	}
 	
 	@PreAuthorize("hasRole('SHIPPING')")
-	@RequestMapping(value="/admin/shipping/weightBased/removeCountry.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/shipping/weightBased/removeCountry.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String deleteCountry(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		String country = request.getParameter("regionCode");
 
@@ -286,7 +287,7 @@ public class CustomShippingMethodsController {
 	
 	
 	@PreAuthorize("hasRole('SHIPPING')")
-	@RequestMapping(value="/admin/shipping/weightBased/removePrice.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/shipping/weightBased/removePrice.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String deletePrice(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		String weight = request.getParameter("weight");
 		String region = request.getParameter("region");
@@ -366,7 +367,7 @@ public class CustomShippingMethodsController {
 	 * @return
 	 */
 	@PreAuthorize("hasRole('SHIPPING')")
-	@RequestMapping(value="/admin/shipping/checkRegionCode.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/shipping/checkRegionCode.html", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String checkRegionCode(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		String code = request.getParameter("code");
 
@@ -409,7 +410,7 @@ public class CustomShippingMethodsController {
 	}
 	
 	@PreAuthorize("hasRole('SHIPPING')")
-	@RequestMapping(value = "/admin/shipping/weightBased/page.html", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/admin/shipping/weightBased/page.html", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody
 	String pageCustomShipping(HttpServletRequest request,
 			HttpServletResponse response) {
@@ -491,7 +492,7 @@ public class CustomShippingMethodsController {
 	
 	
 	@PreAuthorize("hasRole('SHIPPING')")
-	@RequestMapping(value = "/admin/shipping/weightBasedDetails/page.html", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/admin/shipping/weightBasedDetails/page.json", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody
 	String pageCustomShippingDetails(HttpServletRequest request,
 			HttpServletResponse response) {

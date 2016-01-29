@@ -69,7 +69,7 @@
 					<br/><br/>
 					
 				 <!-- Listing grid include -->
-				 <c:set value="/admin/orders/paging.html?_endRow=10" var="pagingUrl" scope="request"/>
+				 <c:set value="/admin/orders/paging.json?_endRow=10" var="pagingUrl" scope="request"/>
 				 <c:set value="/admin/orders/remove.html" var="removeUrl" scope="request"/>
 				 <c:set value="/admin/orders/editOrder.html" var="editUrl" scope="request"/>
 				 <c:set value="/admin/orders/list.html" var="afterRemoveUrl" scope="request"/>

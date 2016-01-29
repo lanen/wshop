@@ -25,7 +25,7 @@
 		$('#checkCodeStatus').show();
 		var code = $("#code").val();
 		var id = $("#id").val();
-		checkCode(code,id,'<c:url value="/admin/content/checkContentCode.html" />');
+		checkCode(code,id,'<c:url value="/admin/content/checkContentCode.json" />');
 	}
 	
 	function callBackCheckCode(msg,code) {

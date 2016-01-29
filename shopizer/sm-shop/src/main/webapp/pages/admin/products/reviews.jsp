@@ -35,8 +35,8 @@
 
 
 				 <!-- Listing grid include -->
-				 <c:set value="/admin/products/reviews/paging.html?productId=${product.id}" var="pagingUrl" scope="request"/>
-				 <c:set value="/admin/products/reviews/remove.html" var="removeUrl" scope="request"/>
+				 <c:set value="/admin/products/reviews/paging.json?productId=${product.id}" var="pagingUrl" scope="request"/>
+				 <c:set value="/admin/products/reviews/remove.json" var="removeUrl" scope="request"/>
 				 <c:set value="/admin/products/reviews/paging.html?productId=${product.id}" var="refreshUrl" scope="request"/>
 				 <c:set var="entityId" value="reviewId" scope="request"/>
 				 <c:set var="componentTitleKey" value="label.product.reviews" scope="request"/>

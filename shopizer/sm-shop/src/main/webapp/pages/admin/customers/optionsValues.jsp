@@ -27,8 +27,8 @@
 				
 				
 				<!-- Listing grid include -->
-				 <c:set value="/admin/customers/options/values/paging.html" var="pagingUrl" scope="request"/>
-				 <c:set value="/admin/customers/options/values/remove.html" var="removeUrl" scope="request"/>
+				 <c:set value="/admin/customers/options/values/paging.json" var="pagingUrl" scope="request"/>
+				 <c:set value="/admin/customers/options/values/remove.json" var="removeUrl" scope="request"/>
 				 <c:set value="/admin/customers/options/values/edit.html" var="editUrl" scope="request"/>
 				 <c:set value="/admin/customers/options/values/list.html" var="afterRemoveUrl" scope="request"/>
 				 <c:set var="entityId" value="id" scope="request"/>

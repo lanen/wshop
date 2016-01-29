@@ -40,7 +40,8 @@ response.setDateHeader ("Expires", -1);
     			<script src="<c:url value="/resources/js/bootstrap/jquery.js" />"></script>
     			<script src="<c:url value="/resources/js/jquery.friendurl.min.js" />"></script>
  
-  
+  				<link rel="shortcut icon" href="<c:url value="/favicon.ico" />" type="image/x-icon" />
+
                 <jsp:include page="/common/adminLinks.jsp" />
                 
                 

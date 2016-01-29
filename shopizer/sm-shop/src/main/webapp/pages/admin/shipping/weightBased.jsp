@@ -54,8 +54,8 @@
 			      				
 			      				
 								 <!-- Listing grid include -->
-								 <c:set value="/admin/shipping/weightBased/page.html" var="pagingUrl" scope="request"/>
-								 <c:set value="/admin/shipping/weightBased/removeCountry.html" var="removeUrl" scope="request"/>
+								 <c:set value="/admin/shipping/weightBased/page.json" var="pagingUrl" scope="request"/>
+								 <c:set value="/admin/shipping/weightBased/removeCountry.json" var="removeUrl" scope="request"/>
 								 <c:set value="/admin/shipping/weightBased/edit.html" var="editUrl" scope="request"/>
 								 <c:set value="/admin/shipping/weightBased.html" var="refreshUrl" scope="request"/>
 								 <c:set var="entityId" value="regionCode" scope="request"/>

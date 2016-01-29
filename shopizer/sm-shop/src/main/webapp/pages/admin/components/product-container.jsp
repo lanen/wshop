@@ -10,7 +10,7 @@
 								isc.RestDataSource.create({ 
 									ID:"products", 
 									dataFormat:"json", 
-									dataURL: "<c:url value="/admin/products/paging.html" />",
+									dataURL: "<c:url value="/admin/products/paging.json" />",
 									operationBindings:[ 
 										{operationType:"fetch", dataProtocol:"postParams"} 
 									]

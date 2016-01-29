@@ -23,34 +23,35 @@ response.setDateHeader ("Expires", -1);
  
  
  <html xmlns="http://www.w3.org/1999/xhtml"> 
- 
- 
+
      <head>
-        	 	<meta charset="utf-8">
-    			<title><c:out value="${requestScope.PAGE_INFORMATION.pageTitle}" /></title>
-    			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    			<meta name="description" content="<c:out value="${requestScope.PAGE_INFORMATION.pageDescription}" />">
-    			<meta name="author" content="<c:out value="${requestScope.MERCHANT_STORE.storename}"/>">
+		<meta charset="utf-8">
+		<title><c:out value="${requestScope.PAGE_INFORMATION.pageTitle}" /></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="<c:out value="${requestScope.PAGE_INFORMATION.pageDescription}" />">
+		<meta name="author" content="<c:out value="${requestScope.MERCHANT_STORE.storename}"/>">
 
-				<!-- mobile settings -->
-				<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+		<link rel="shortcut icon" href="<c:url value="/favicon.ico" />" type="image/x-icon" />
 
-                <jsp:include page="/pages/shop/templates/bootstrap3/sections/shopLinks.jsp" />
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+		<jsp:include page="/pages/shop/templates/bootstrap3/sections/shopLinks.jsp" />
  	</head>
  
  	<body>
  	
 	<div id="pageContainer" class="">
-				<tiles:insertAttribute name="header" ignore="true"/>
+		<tiles:insertAttribute name="header" ignore="true"/>
 
-				<tiles:insertAttribute name="navbar" ignore="true"/>
+		<tiles:insertAttribute name="navbar" ignore="true"/>
 
-				<tiles:insertAttribute name="body" ignore="true"/>
+		<tiles:insertAttribute name="body" ignore="true"/>
 
-				<tiles:insertAttribute name="footer" ignore="true"/>
+		<tiles:insertAttribute name="footer" ignore="true"/>
 	</div>
 	<!-- end container -->
-	   <jsp:include page="/pages/shop/templates/bootstrap3/sections/jsLinks.jsp" />
+	<jsp:include page="/pages/shop/templates/bootstrap3/sections/jsLinks.jsp" />
 
  	</body>
  

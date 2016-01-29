@@ -62,7 +62,7 @@
 		$('#checkCodeStatus').show();
 		var code = $("#code").val();
 		var id = $("#id").val();
-		checkCode(code,id,'<c:url value="/admin/manufacturer/checkCode.html" />');
+		checkCode(code,id,'<c:url value="/admin/manufacturer/checkCode.json" />');
 	}
 	
 	function callBackCheckCode(msg,code) {

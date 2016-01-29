@@ -35,7 +35,7 @@
 				<br/><br/>
 
 				 <!-- Listing grid include -->
-				 <c:set value="/admin/products/attributes/page.html?productId=${product.id}" var="pagingUrl" scope="request"/>
+				 <c:set value="/admin/products/attributes/page.json?productId=${product.id}" var="pagingUrl" scope="request"/>
 				 <c:set value="/admin/attributes/attribute/remove.html" var="removeUrl" scope="request"/>
 				 <c:set value="/admin/products/attributes/editAttribute.html" var="editUrl" scope="request"/>
 				 <c:set value="/admin/products/attributes/list.html?id=${product.id}" var="afterRemoveUrl" scope="request"/>

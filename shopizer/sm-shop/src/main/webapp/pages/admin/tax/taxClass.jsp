@@ -59,8 +59,8 @@
 				            	 
 				            	 <br/><br/>
 				            	 <!-- Listing grid include -->
-								 <c:set value="/admin/tax/taxclass/paging.html" var="pagingUrl" scope="request"/>
-								 <c:set value="/admin/tax/taxclass/remove.html" var="removeUrl" scope="request"/>
+								 <c:set value="/admin/tax/taxclass/paging.json" var="pagingUrl" scope="request"/>
+								 <c:set value="/admin/tax/taxclass/remove.json" var="removeUrl" scope="request"/>
 								 <c:set value="/admin/tax/taxclass/list.html" var="refreshUrl" scope="request"/>
 								 <c:set value="/admin/tax/taxclass/edit.html" var="editUrl" scope="request"/>
 								 <c:set var="entityId" value="taxClassId" scope="request"/>

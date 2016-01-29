@@ -16,6 +16,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,11 +64,8 @@ public class ReferenceController {
 	@Autowired
 	private LanguageUtils languageUtils;
 
-
-	
-	
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value={"/admin/reference/provinces.html","/shop/reference/provinces.html"}, method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value={"/admin/reference/provinces.json","/shop/reference/provinces.json"}, method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String getProvinces(HttpServletRequest request, HttpServletResponse response) {
 		
 		String countryCode = request.getParameter("countryCode");
@@ -172,7 +170,7 @@ public class ReferenceController {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value={"/shop/reference/creditCardDates.html"}, method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value={"/shop/reference/creditCardDates.json"}, method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String getCreditCardDates(HttpServletRequest request, HttpServletResponse response) {
 		
 
@@ -215,7 +213,7 @@ public class ReferenceController {
 	
 	
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value={"/shop/reference/monthsOfYear.html"}, method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value={"/shop/reference/monthsOfYear.json"}, method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String getMonthsOfYear(HttpServletRequest request, HttpServletResponse response) {
 		
 

@@ -25,8 +25,8 @@
 
 
 				 <!-- Listing grid include -->
-				 <c:set value="/admin/catalogue/manufacturer/paging.html" var="pagingUrl" scope="request"/>
-				 <c:set value="/admin/catalogue/manufacturer/remove.html" var="removeUrl" scope="request"/>
+				 <c:set value="/admin/catalogue/manufacturer/paging.json" var="pagingUrl" scope="request"/>
+				 <c:set value="/admin/catalogue/manufacturer/remove.json" var="removeUrl" scope="request"/>
 				 <c:set value="/admin/catalogue/manufacturer/edit.html" var="editUrl" scope="request"/>
 				 <c:set value="/admin/catalogue/manufacturer/list.html" var="afterRemoveUrl" scope="request"/>
 				 <c:set var="entityId" value="id" scope="request"/>

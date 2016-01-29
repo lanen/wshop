@@ -71,8 +71,8 @@
 							
 
 							<!-- Listing grid include -->
-				 			<c:set value="/admin/shipping/countries/paging.html" var="pagingUrl" scope="request"/>
-				 			<c:set value="/admin/shipping/countries/update.html" var="updateUrl" scope="request"/>
+				 			<c:set value="/admin/shipping/countries/paging.json" var="pagingUrl" scope="request"/>
+				 			<c:set value="/admin/shipping/countries/update.json" var="updateUrl" scope="request"/>
 				 			<c:set value="/admin/shipping/shippingConfigs.html" var="refreshUrl" scope="request"/>
 				 			<c:set var="entityId" value="code" scope="request"/>
 							<c:set var="componentTitleKey" value="label.shipping.countries" scope="request"/>

@@ -253,7 +253,7 @@ function resetErrorMessage() {
 function getZones(listDiv, textDiv, countryCode, defaultValue, callBackFunction){
 	$.ajax({
 	  type: 'POST',
-	  url: '<c:url value="/shop/reference/provinces.html"/>',
+	  url: '<c:url value="/shop/reference/provinces.json"/>',
 	  data: 'countryCode=' + countryCode + '&lang=${requestScope.LANGUAGE.code}',
 	  dataType: 'json',
 	  success: function(response){

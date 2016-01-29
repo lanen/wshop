@@ -13,6 +13,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -103,7 +104,7 @@ public class ShippingConfigsController {
 	
 	@SuppressWarnings({ "unchecked"})
 	@PreAuthorize("hasRole('SHIPPING')")
-	@RequestMapping(value="/admin/shipping/countries/paging.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/shipping/countries/paging.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String pageCountries(HttpServletRequest request, HttpServletResponse response) {
 		String countryName = request.getParameter("name");
 		AjaxResponse resp = new AjaxResponse();
@@ -157,7 +158,7 @@ public class ShippingConfigsController {
 	}
 	
 	@PreAuthorize("hasRole('SHIPPING')")
-	@RequestMapping(value="/admin/shipping/countries/update.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/shipping/countries/update.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String updateCountry(HttpServletRequest request, HttpServletResponse response) {
 		String values = request.getParameter("_oldValues");
 		String supported = request.getParameter("supported");

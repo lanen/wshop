@@ -29,7 +29,7 @@
 		$('#checkCodeStatus').show();
 		var code = $("#code").val();
 		var id = $("#id").val();
-		checkCode(code,id,'<c:url value="/admin/categories/checkCategoryCode.html" />');
+		checkCode(code,id,'<c:url value="/admin/categories/checkCategoryCode.json" />');
 	}
 	
 	function callBackCheckCode(msg,code) {

@@ -54,7 +54,7 @@ $.fn.addItems = function(data) {
 function getZones(countryCode){
 	$.ajax({
 	  type: 'POST',
-	  url: '<c:url value="/admin/reference/provinces.html"/>',
+	  url: '<c:url value="/admin/reference/provinces.json"/>',
 	  data: 'countryCode=' + countryCode,
 	  dataType: 'json',
 	  success: function(response){
@@ -100,7 +100,7 @@ function validateCode() {
 	$('#checkCodeStatus').show();
 	var storeCode = $("#code").val();
 	var id = $("#id").val();
-	checkCode(storeCode,id,'<c:url value="/admin/store/checkStoreCode.html" />');
+	checkCode(storeCode,id,'<c:url value="/admin/store/checkStoreCode.json" />');
 }
 
 function callBackCheckCode(msg,code) {

@@ -14,7 +14,7 @@
 			$("#store.error").show();
 			$.ajax({
 			  type: 'POST',
-			  url: '<c:url value="/admin/store/removeImage.html"/>',
+			  url: '<c:url value="/admin/store/removeImage.json"/>',
 			  dataType: 'json',
 			  success: function(response){
 		

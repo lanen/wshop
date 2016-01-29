@@ -24,7 +24,7 @@
     
     function clearCache(cacheKey) {
 
-    	var url = '<c:url value="/admin/cache/clear.html"/>';
+    	var url = '<c:url value="/admin/cache/clear.json"/>';
     	if(cacheKey!=null) {
     		url = url + '?cacheKey=' + cacheKey;
     	}

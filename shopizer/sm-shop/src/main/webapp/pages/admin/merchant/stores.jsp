@@ -24,8 +24,8 @@
 								
 								
 								<!-- Listing grid include -->
-								 <c:set value="/admin/store/paging.html" var="pagingUrl" scope="request"/>
-								 <c:set value="/admin/store/remove.html" var="removeUrl" scope="request"/>
+								 <c:set value="/admin/store/paging.json" var="pagingUrl" scope="request"/>
+								 <c:set value="/admin/store/remove.json" var="removeUrl" scope="request"/>
 								 <c:set value="/admin/store/editStore.html" var="editUrl" scope="request"/>
 								 <c:set value="/admin/store/list.html" var="refreshUrl" scope="request"/>
 								 <c:set var="entityId" value="storeId" scope="request"/>

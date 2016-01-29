@@ -27,7 +27,7 @@ $(document).ready(function() {
 		var data = $('#attributes').serialize();
 
 	    $.ajax({
-	        url: '<c:url value="/admin/customers/attributes/save.html"/>',
+	        url: '<c:url value="/admin/customers/attributes/save.json"/>',
 	        cache: false,
 	        type: 'POST',
 	        data : data,
@@ -125,7 +125,7 @@ $.fn.addItems = function(data) {
 function getZones(countryCode){
 	$.ajax({
 	  type: 'POST',
-	  url: '<c:url value="/admin/reference/provinces.html"/>',
+	  url: '<c:url value="/admin/reference/provinces.json"/>',
 	  data: 'countryCode=' + countryCode,
 	  dataType: 'json',
 	  success: function(response){
@@ -175,7 +175,7 @@ $.fn.addDeliveryItems = function(data) {
 function getDeliveryZones(countryCode){
 	$.ajax({
 	  type: 'POST',
-	  url: '<c:url value="/admin/reference/provinces.html"/>',
+	  url: '<c:url value="/admin/reference/provinces.json"/>',
 	  data: 'countryCode=' + countryCode,
 	  dataType: 'json',
 	  success: function(response){
@@ -227,7 +227,7 @@ $.fn.addBillingItems = function(data) {
 function getBillingZones(countryCode){
 		$.ajax({
 		  type: 'POST',
-		  url: '<c:url value="/admin/reference/provinces.html"/>',
+		  url: '<c:url value="/admin/reference/provinces.json"/>',
 		  data: 'countryCode=' + countryCode,
 		  dataType: 'json',
 		  success: function(response){
@@ -276,7 +276,7 @@ function resetCustomerPassword(customerId){
 		})
 		$.ajax({
 		  type: 'POST',
-		  url: '<c:url value="/admin/customers/resetPassword.html"/>',
+		  url: '<c:url value="/admin/customers/resetPassword.json"/>',
 		  data: 'customerId=' + customerId,
 		  dataType: 'json',
 		  success: function(response){

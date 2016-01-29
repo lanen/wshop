@@ -27,7 +27,7 @@ $.fn.addZoneItems = function(div, data, defaultValue) {
 
 function getZones(countryCode, zoneCode){
 	$("#registration_zones option").remove(); 
-	var url=getContextPath() + '/shop/reference/provinces.html';
+	var url=getContextPath() + '/shop/reference/provinces.json';
 	var data='countryCode=' + countryCode + '&lang=' + getLanguageCode();
 	
 	$.ajax({

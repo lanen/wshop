@@ -114,8 +114,8 @@ $(document).ready(function() {
 			      				
 			      				
 								 <!-- Listing grid include -->
-								 <c:set value="/admin/shipping/weightBasedDetails/page.html?region=${customRegion.customRegionName}" var="pagingUrl" scope="request"/>
-								 <c:set value="/admin/shipping/weightBased/removePrice.html?region=${customRegion.customRegionName}" var="removeUrl" scope="request"/>
+								 <c:set value="/admin/shipping/weightBasedDetails/page.json?region=${customRegion.customRegionName}" var="pagingUrl" scope="request"/>
+								 <c:set value="/admin/shipping/weightBased/removePrice.json?region=${customRegion.customRegionName}" var="removeUrl" scope="request"/>
 								 <c:set var="entityId" value="maximumWeight" scope="request"/>
 								 <c:set value="/admin/shipping/weightBased/edit.html?customRegionName=${customRegion.customRegionName}" var="afterRemoveUrl" scope="request"/>
 								 <c:set var="componentTitleKey" value="module.shipping.weightBased" scope="request"/>

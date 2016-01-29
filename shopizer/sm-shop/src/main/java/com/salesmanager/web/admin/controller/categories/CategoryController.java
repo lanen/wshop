@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -239,7 +240,7 @@ public class CategoryController {
 	
 	@SuppressWarnings({ "unchecked"})
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/categories/paging.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/categories/paging.json", method=RequestMethod.POST, produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String pageCategories(HttpServletRequest request, HttpServletResponse response) {
 		String categoryName = request.getParameter("name");
 
@@ -319,7 +320,7 @@ public class CategoryController {
 	}
 	
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/categories/remove.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/categories/remove.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String deleteCategory(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		String sid = request.getParameter("categoryId");
 
@@ -359,7 +360,7 @@ public class CategoryController {
 	}
 	
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/categories/moveCategory.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/categories/moveCategory.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String moveCategory(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		String parentid = request.getParameter("parentId");
 		String childid = request.getParameter("childId");
@@ -416,7 +417,7 @@ public class CategoryController {
 	}
 	
 	@PreAuthorize("hasRole('PRODUCTS')")
-	@RequestMapping(value="/admin/categories/checkCategoryCode.html", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/admin/categories/checkCategoryCode.json", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody String checkCategoryCode(HttpServletRequest request, HttpServletResponse response, Locale locale) {
 		String code = request.getParameter("code");
 		String id = request.getParameter("id");

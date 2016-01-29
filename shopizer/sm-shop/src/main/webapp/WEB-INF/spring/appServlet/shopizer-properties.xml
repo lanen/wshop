@@ -47,6 +47,7 @@
 	<util:list id="templates" value-type="java.lang.String">
 		<value>bootstrap</value>
 		<value>bootstrap3</value>
+		<value>mugen</value>
     </util:list>
 
 	<!-- 初始化数据 -->

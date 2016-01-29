@@ -26,7 +26,7 @@
 								
 								
 				 <!-- Listing grid include -->
-				 <c:set value="/admin/orders/paging.html" var="pagingUrl" scope="request"/>
+				 <c:set value="/admin/orders/paging.json" var="pagingUrl" scope="request"/>
 				 <c:set value="/admin/orders/remove.html" var="removeUrl" scope="request"/>
 				 <c:set value="/admin/orders/editOrder.html" var="editUrl" scope="request"/>
 				 <c:set value="/admin/orders/list.html" var="afterRemoveUrl" scope="request"/>

@@ -39,8 +39,8 @@
 								
 				 <!-- Listing grid include -->
 				 
-				 <c:set value="/admin/products/prices/paging.html?productId=${product.id}" var="pagingUrl" scope="request"/>
-				 <c:set value="/admin/products/price/remove.html?productId=${product.id}" var="removeUrl" scope="request"/>
+				 <c:set value="/admin/products/prices/paging.json?productId=${product.id}" var="pagingUrl" scope="request"/>
+				 <c:set value="/admin/products/price/remove.json?productId=${product.id}" var="removeUrl" scope="request"/>
 				 <c:set value="/admin/products/price/edit.html" var="editUrl" scope="request"/>
 				 <c:set value="/admin/products/prices.html?id=${product.id}" var="afterRemoveUrl" scope="request"/>
 				 <c:set var="entityId" value="priceId" scope="request"/>

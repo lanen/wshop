@@ -99,9 +99,9 @@ $(document).ready(function() {
 
 
 				<!-- Listing grid include -->
-				<c:set value="/admin/customers/optionsset/paging.html"
+				<c:set value="/admin/customers/optionsset/paging.json"
 					var="pagingUrl" scope="request" />
-				<c:set value="/admin/customers/optionsset/remove.html"
+				<c:set value="/admin/customers/optionsset/remove.json"
 					var="removeUrl" scope="request" />
 				<c:set value="/admin/customers/optionsset/edit.html" var="editUrl"
 					scope="request" />
