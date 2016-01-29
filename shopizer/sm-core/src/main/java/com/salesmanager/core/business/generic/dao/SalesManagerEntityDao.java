@@ -89,7 +89,6 @@ public interface SalesManagerEntityDao<K extends Serializable & Comparable<K>, E
 	 * @param fieldValue
 	 * @return
 	 * @throws NoResultException
-	 * @throws {@link NonUniqueResultException}
 	 */
 	<V> E getByField(SingularAttribute<? super E, V> attribute, V fieldValue);
 

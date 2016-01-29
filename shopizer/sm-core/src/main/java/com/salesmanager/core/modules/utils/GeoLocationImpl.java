@@ -11,47 +11,41 @@ import com.salesmanager.core.business.common.model.Address;
 
 
 public class GeoLocationImpl implements GeoLocation {
-	
-	private DatabaseReader reader = null;
-	private static final Logger LOGGER = LoggerFactory.getLogger( GeoLocationImpl.class );
-	//@Value("${dbPath:classpath:/reference/GeoLite2-Country.mmdb}")
-	//private Resource db;
 
-	
+    private DatabaseReader reader = null;
+    private static final Logger LOGGER = LoggerFactory.getLogger(GeoLocationImpl.class);
+    //@Value("${dbPath:classpath:/reference/GeoLite2-Country.mmdb}")
+    //private Resource db;
 
 
-	@Override
-	public Address getAddress(String ipAddress) throws Exception {
-		
-			if(reader==null) {
-				//if(db!=null) {
-					//File file = db.getFile();
-					try {
-						java.io.InputStream inputFile = GeoLocationImpl.class.getClassLoader().getResourceAsStream("reference/GeoLite2-Country.mmdb");
-						reader = new DatabaseReader.Builder(inputFile).build();
-					} catch(Exception e) {
-						LOGGER.error("Cannot instantiate IP database",e);
-					}
-				//}
-			}
-		
-			Address address = new Address();
+    @Override
+    public Address getAddress(String ipAddress) throws Exception {
 
-			
-			CityResponse response = reader.city(InetAddress.getByName(ipAddress));
+        if (reader == null) {
+            //if(db!=null) {
+            //File file = db.getFile();
+            try {
+                java.io.InputStream inputFile = GeoLocationImpl.class.getClassLoader().getResourceAsStream("reference/GeoLite2-Country.mmdb");
+                reader = new DatabaseReader.Builder(inputFile).build();
+            } catch (Exception e) {
+                LOGGER.error("Cannot instantiate IP database", e);
+            }
+            //}
+        }
 
-			address.setCountry(response.getCountry().getIsoCode());
-			address.setPostalCode(response.getPostal().getCode());
-			address.setZone(response.getMostSpecificSubdivision().getIsoCode());
-			address.setCity(response.getCity().getName());
-			
+        Address address = new Address();
 
 
-		
-			return address;
-		
-		
-	}
+        CityResponse response = reader.city(InetAddress.getByName(ipAddress));
+
+        address.setCountry(response.getCountry().getIsoCode());
+        address.setPostalCode(response.getPostal().getCode());
+        address.setZone(response.getMostSpecificSubdivision().getIsoCode());
+        address.setCity(response.getCity().getName());
+
+
+        return address;
+    }
 
 
 }

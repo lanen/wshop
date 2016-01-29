@@ -8,11 +8,11 @@ import com.salesmanager.core.business.shipping.model.PackageDetails;
 import com.salesmanager.core.business.shipping.model.ShippingProduct;
 
 public interface Packaging {
-	
-	public List<PackageDetails> getBoxPackagesDetails(
-			List<ShippingProduct> products, MerchantStore store) throws ServiceException;
-	
-	public List<PackageDetails> getItemPackagesDetails(
-			List<ShippingProduct> products, MerchantStore store) throws ServiceException;
+
+    List<PackageDetails> getBoxPackagesDetails(
+            List<ShippingProduct> products, MerchantStore store) throws ServiceException;
+
+    List<PackageDetails> getItemPackagesDetails(
+            List<ShippingProduct> products, MerchantStore store) throws ServiceException;
 
 }

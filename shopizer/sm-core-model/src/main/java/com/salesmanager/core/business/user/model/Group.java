@@ -107,6 +107,4 @@ public class Group extends SalesManagerEntity<Integer, Group> implements Auditab
 		return groupType;
 	}
 
-
-
 }

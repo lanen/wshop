@@ -139,7 +139,6 @@ public class InitStoreData implements InitData {
 
     public void initInitialData() throws ServiceException {
 
-
         LOGGER.info("Starting the initialization of test data");
         Date date = new Date(System.currentTimeMillis());
 

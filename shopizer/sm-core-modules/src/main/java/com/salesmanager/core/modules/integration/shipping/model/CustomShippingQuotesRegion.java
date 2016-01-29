@@ -80,9 +80,6 @@ public class CustomShippingQuotesRegion implements JSONAware {
 		}
 		returnString.append("}");
 		return returnString.toString();
-		
-		
 	}
-
 
 }

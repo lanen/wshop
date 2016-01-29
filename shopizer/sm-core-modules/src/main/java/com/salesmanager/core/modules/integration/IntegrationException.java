@@ -6,7 +6,6 @@ import com.salesmanager.core.business.generic.exception.ServiceException;
 
 public class IntegrationException extends ServiceException {
 	
-
 	/**
 	 * 
 	 */
