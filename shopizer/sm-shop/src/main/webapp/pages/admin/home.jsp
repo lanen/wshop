@@ -6,12 +6,6 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <%@ page session="false" %>
-
-
-
-
-
-
 <div class="tabbable">
 
 					<jsp:include page="/common/adminTabs.jsp" />

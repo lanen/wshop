@@ -18,6 +18,8 @@ import com.salesmanager.core.business.order.service.OrderServiceImpl;
 import com.salesmanager.core.business.reference.language.model.Language;
 import com.salesmanager.core.business.shoppingcart.model.ShoppingCart;
 import com.salesmanager.core.business.shoppingcart.model.ShoppingCartItem;
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  * <p>Implementation class responsible for calculating state of shopping cart.
  * This class will take care of calculating price of each line items of shopping cart

@@ -24,21 +24,21 @@
   
 
 		<!-- WEB FONTS -->
-		<link href="<c:url value="/resources/open-sans-1.4.2/open-sans.css" />" rel="stylesheet" type="text/css">
+		<link href="<c:url value="/resources/open-sans-1.4.2/open-sans.css" />" rel="stylesheet" type="text/css" />
 		
 		<!-- CORE CSS -->
-		<link href="<c:url value="/resources/bootstrap-3.3.5/css/bootstrap.min.css" />" rel="stylesheet" type="text/css">
-		<link href="<c:url value="/resources/font-awesome-4.5.0/css/font-awesome.min.css" />" rel="stylesheet" type="text/css">
+		<link href="<c:url value="/resources/bootstrap-3.3.5/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
+		<link href="<c:url value="/resources/font-awesome-4.5.0/css/font-awesome.min.css" />" rel="stylesheet" type="text/css" />
 
 		<!--  Theme -->
-		<link href="<c:url value="/resources/templates/mugen/css/theme.css" />" rel="stylesheet" type="text/css">
-		<link href="<c:url value="/resources/templates/mugen/css/orange.css" />" rel="stylesheet" type="text/css">
-		<link href="<c:url value="/resources/templates/mugen/css/shop.css" />" rel="stylesheet" type="text/css">
+		<link href="<c:url value="/resources/templates/mugen/css/theme.css" />" rel="stylesheet" type="text/css" />
+		<link href="<c:url value="/resources/templates/mugen/css/orange.css" />" rel="stylesheet" type="text/css" />
+		<link href="<c:url value="/resources/templates/mugen/css/shop.css" />" rel="stylesheet" type="text/css" />
 
     
     	<!-- generic and common css file -->
-    	<link href="<c:url value="/resources/css/sm.css" />" rel="stylesheet">
-    	<link href="<c:url value="/resources/css/showLoading.css" />" rel="stylesheet">
+    	<link href="<c:url value="/resources/css/sm.css" />" rel="stylesheet" />
+    	<link href="<c:url value="/resources/css/showLoading.css" />" rel="stylesheet" />
     
     	<!-- ////////////// -->
 

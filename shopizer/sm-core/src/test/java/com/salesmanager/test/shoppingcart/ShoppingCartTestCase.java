@@ -43,6 +43,7 @@ import com.salesmanager.test.core.AbstractSalesManagerCoreTestCase;
  * - Add a product to persistent shopping cart
  * - Retrieve an item from the persistent shopping cart
  * - Rebuild a shopping cart item after the product definition has been modified
+ * @author Carl SamsonRebuild a shopping cart item after the product definition has been modified
  * @author Carl Samson
  *
  */

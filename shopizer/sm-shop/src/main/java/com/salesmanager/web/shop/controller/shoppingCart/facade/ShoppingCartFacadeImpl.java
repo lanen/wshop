@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -48,6 +49,7 @@ import com.salesmanager.web.populator.shoppingCart.ShoppingCartDataPopulator;
  * @since 1.2
  */
 @Service( value = "shoppingCartFacade" )
+@Transactional
 public class ShoppingCartFacadeImpl
     implements ShoppingCartFacade
 {
@@ -341,10 +343,10 @@ public class ShoppingCartFacadeImpl
                             shoppingCartItemSet.add( shoppingCartItem );
                         }
                     }
-                    cartModel.setLineItems( shoppingCartItemSet );
+                    cartModel.getLineItems().clear();
+                    cartModel.getLineItems().addAll(shoppingCartItemSet);
+
                     shoppingCartService.saveOrUpdate( cartModel );
-
-
 
 
                     ShoppingCartDataPopulator shoppingCartDataPopulator = new ShoppingCartDataPopulator();

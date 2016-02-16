@@ -80,7 +80,7 @@ $(document).ready(function() {
 				<div class="col-md-12 col-sm-12 no-padding-right">
 						<!-- SEARCH BAR -->
 						<ul id="optionsBar" class="">
-							<li>
+							<li >
 								<input id="searchField" class="typeahead form-control" name="q" type="text" placeholder="<s:message code="label.search.searchQuery" text="Search query" />" autocomplete="off" spellcheck="false" dir="auto" value="<c:out value="${q}"/>">
 							</li>
 							<li>

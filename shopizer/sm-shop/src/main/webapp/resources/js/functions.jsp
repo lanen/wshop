@@ -63,6 +63,9 @@ function getInvalidCheckPasswordMessage() {
 }
 
 function cartInfoLabel(cart){
+	if(typeof(cart) == 'string'){
+		cart = eval('('+cart+')');
+	}
 	 var labelItem = getItemLabel(cart.quantity);
 	 <!-- A configuration is required to display quantity and price -->
 	 <c:choose>

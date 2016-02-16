@@ -107,12 +107,12 @@
         <intercept-url pattern="/shop/customer" access="hasRole('AUTH_CUSTOMER')"/>
         <intercept-url pattern="/shop/customer/" access="hasRole('AUTH_CUSTOMER')"/>
         <intercept-url pattern="/shop/customer/*.html*" access="hasRole('AUTH_CUSTOMER')"/>
-        <intercept-url pattern="/shop/customer/*.html*" access="hasRole('AUTH_CUSTOMER')"/>
         <intercept-url pattern="/shop/customer/*/*.html*" access="hasRole('AUTH_CUSTOMER')"/>
         <intercept-url pattern="/shop/customer/*/*/*.html*" access="hasRole('AUTH_CUSTOMER')"/>
 
 
         <logout invalidate-session="false"
+
                 logout-success-url="/shop/"
                 logout-url="/shop/customer/j_spring_security_logout"/>
 

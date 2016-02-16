@@ -16,9 +16,6 @@ response.setDateHeader ("Expires", -1);
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
-
-
-
 <section class="header">
             <div class="container no-padding-right">
                 <div class="row">
@@ -96,6 +93,7 @@ response.setDateHeader ("Expires", -1);
 								<!-- login box -->
 								<div id="signin" class="btn-group pull-right">
 								<button id="signinDrop" class="dropdown-toggle" type="button" data-toggle="dropdown">
+									<span class="fa fa-user fa-2x icon"></span>
 									<span class="signininfo normal-label"><s:message code="button.label.signin" text="Signin" /></span> <span class="caret icon signincaret"></span>
 								</button>
 								<!-- form id must be login, form fields must be userName, password and storeCode -->
@@ -104,6 +102,13 @@ response.setDateHeader ("Expires", -1);
 										<div id="signinPane" >
 												<div id="loginError" class="alert alert-error bg-danger" style="display:none;"></div>
 												<form id="login" method="post" accept-charset="UTF-8">
+
+												<div class="input-group">
+												  <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+												  <input id="signin_userName" name="userName" class="form-control" type="text" placeholder="<s:message code="label.username" text="Username" />">
+												</div>
+
+												<% /**
 												<div class="control-group">
 				                        				<label><s:message code="label.username" text="Username" /></label>
 								                        <div class="controls">
@@ -111,6 +116,16 @@ response.setDateHeader ("Expires", -1);
 															<input id="signin_userName" style="margin-bottom: 15px;" type="text" name="userName" size="30" />
 														</div>
 												</div>
+												*/%>
+
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+													<input id="signin_password" class="form-control" type="password" name="password" placeholder="<s:message code="label.password" text="Password" />" />
+
+												</div>
+
+												<% /**
+
 												<div class="control-group">
 				                        				<label><s:message code="label.password" text="Password" /></label>
 								                        <div class="controls">
@@ -118,13 +133,32 @@ response.setDateHeader ("Expires", -1);
 															<input id="signin_password" style="margin-bottom: 15px;" type="password" name="password" size="30" />
 														</div>
 												</div>
+												*/ %>
+
 												<!-- important keep signin_storeCode -->
 												<input id="signin_storeCode" name="storeCode" type="hidden" value="<c:out value="${requestScope.MERCHANT_STORE.code}"/>"/>					 
-												<button type="submit" style="width:100%" class="btn btn-large" id="login-button"><s:message code="button.label.login" text="Login" /></button>
+												<button type="submit" class="btn btn-block btn-large" id="login-button"><s:message code="button.label.login" text="Login" /></button>
 												
 											</form>
-											<a id="registerLink" onClick="javascript:location.href='<c:url value="/shop/customer/registration.html" />';" href="" role="button" class="" data-toggle="modal"><s:message code="label.register.notyetregistered" text="Not yet registered ?" /></a>
+
 										</div>
+									</li>
+
+ 										<li class="divider"></li>
+
+									<li>
+										<a href="<c:url value="/shop/customer/openid/weixin.html" />" class="weixin-button">
+											<i class="fa fa-weixin"></i> |  微信登陆
+										</a>
+									</li>
+									<li>
+										<a href="<c:url value="/shop/customer/openid/qq.html" />" class="qq-button">
+											<i class="fa fa-qq"></i> |  QQ登陆
+										</a>
+									</li>
+
+									<li>
+										<a id="registerLink" onClick="javascript:location.href='<c:url value="/shop/customer/registration.html" />';" href="" role="button" class="" data-toggle="modal"><s:message code="label.register.notyetregistered" text="Not yet registered ?" /></a>
 									</li>
 								</div>
 								</sec:authorize>

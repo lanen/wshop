@@ -22,26 +22,24 @@ import com.salesmanager.web.entity.shoppingcart.ShoppingCartItem;
  * @since1.2
  *
  */
-
-
 public interface ShoppingCartFacade {
 
-    public ShoppingCartData addItemsToShoppingCart(ShoppingCartData shoppingCart,final ShoppingCartItem item, final MerchantStore store,final Language language,final Customer customer) throws Exception;
-    public ShoppingCart createCartModel(final String shoppingCartCode, final MerchantStore store,final Customer customer) throws Exception;
+    ShoppingCartData addItemsToShoppingCart(ShoppingCartData shoppingCart,final ShoppingCartItem item, final MerchantStore store,final Language language,final Customer customer) throws Exception;
+    ShoppingCart createCartModel(final String shoppingCartCode, final MerchantStore store,final Customer customer) throws Exception;
     /**
      * Method responsible for getting shopping cart from
      * either session or from underlying DB.
      */
-    public ShoppingCartData getShoppingCartData(final Customer customer,final  MerchantStore store,final String shoppingCartId) throws Exception;
-    public ShoppingCartData getShoppingCartData(final ShoppingCart shoppingCart) throws Exception;
-    public ShoppingCartData getShoppingCartData(String code, MerchantStore store) throws Exception;
-    public ShoppingCartData removeCartItem(final Long itemID, final String cartId,final MerchantStore store,final Language language ) throws Exception;
-    public ShoppingCartData updateCartItem(final Long itemID, final String cartId, final long quantity,final MerchantStore store,Language language ) throws Exception;
-    public void deleteShoppingCart(final Long id, final MerchantStore store) throws Exception;
+    ShoppingCartData getShoppingCartData(final Customer customer,final  MerchantStore store,final String shoppingCartId) throws Exception;
+    ShoppingCartData getShoppingCartData(final ShoppingCart shoppingCart) throws Exception;
+    ShoppingCartData getShoppingCartData(String code, MerchantStore store) throws Exception;
+    ShoppingCartData removeCartItem(final Long itemID, final String cartId,final MerchantStore store,final Language language ) throws Exception;
+    ShoppingCartData updateCartItem(final Long itemID, final String cartId, final long quantity,final MerchantStore store,Language language ) throws Exception;
+    void deleteShoppingCart(final Long id, final MerchantStore store) throws Exception;
 	ShoppingCartData updateCartItems(List<ShoppingCartItem> shoppingCartItems,
 			MerchantStore store, Language language) throws Exception;
-	public ShoppingCart getShoppingCartModel(final String shoppingCartCode, MerchantStore store) throws Exception;
-	public ShoppingCart getShoppingCartModel(final Customer customer, MerchantStore store) throws Exception;
+    ShoppingCart getShoppingCartModel(final String shoppingCartCode, MerchantStore store) throws Exception;
+    ShoppingCart getShoppingCartModel(final Customer customer, MerchantStore store) throws Exception;
 	void deleteShoppingCart(String code, MerchantStore store) throws Exception;
 
 

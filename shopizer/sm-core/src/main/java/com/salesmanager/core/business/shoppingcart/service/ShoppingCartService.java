@@ -63,7 +63,6 @@ public interface ShoppingCartService extends SalesManagerEntityService<Long, Sho
 
 	/**
 	 *
-	 * @param userShoppingModel
 	 * @param sessionCart
 	 * @param store
 	 * @return {@link ShoppingCart} merged Shopping Cart

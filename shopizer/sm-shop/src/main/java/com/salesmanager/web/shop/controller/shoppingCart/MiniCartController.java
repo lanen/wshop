@@ -9,8 +9,10 @@ import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -64,8 +66,8 @@ public class MiniCartController extends AbstractController{
 	}
 
 	
-	@RequestMapping(value={"/removeMiniShoppingCartItem.html"},   method = { RequestMethod.GET, RequestMethod.POST })
-	public @ResponseBody ShoppingCartData removeShoppingCartItem(Long lineItemId, final String shoppingCartCode, HttpServletRequest request, Model model) throws Exception {
+	@RequestMapping(value={"/{cartId}/item/{itemId}","/{cartId}/delete/{itemId}"},   method = { RequestMethod.DELETE, RequestMethod.POST }, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public @ResponseBody ShoppingCartData removeShoppingCartItem(@PathVariable("itemId")Long lineItemId, @PathVariable("cartId")final String shoppingCartCode, HttpServletRequest request, Model model) throws Exception {
 		Language language = (Language)request.getAttribute(Constants.LANGUAGE);
 		MerchantStore merchantStore = (MerchantStore)request.getAttribute(Constants.MERCHANT_STORE);
 		ShoppingCartData cart =  shoppingCartFacade.getShoppingCartData(null, merchantStore, shoppingCartCode);
@@ -78,7 +80,7 @@ public class MiniCartController extends AbstractController{
 		if(CollectionUtils.isEmpty(shoppingCartData.getShoppingCartItems())) {
 			shoppingCartFacade.deleteShoppingCart(shoppingCartData.getId(), merchantStore);
 			request.getSession().removeAttribute(Constants.SHOPPING_CART);
-			return null;
+			return shoppingCartData;
 		}
 		
 		

@@ -136,7 +136,7 @@
 		
 		$.ajax({  
 			 type: 'POST',  
-			 url: getContextPath() + '/shop/cart/addShoppingCartItem.html',  
+			 url: getContextPath() + '/shop/cart/item',
 			 data: scItem, 
 			 contentType: 'application/json;charset=utf-8',
 			 dataType: 'json', 
@@ -227,11 +227,8 @@ function updateCart(cartDiv) {
 function displayMiniCart(){
 	var cartCode = getCartCode();
 	
-	log('Display cart content');
-	
-	
-	
-	
+	//log('Display cart content');
+
 	$('#shoppingcartProducts').html('');
 	$('#cart-box').addClass('loading-indicator-overlay');/** manage manually cart loading**/
 	$('#cartShowLoading').show();
@@ -240,6 +237,7 @@ function displayMiniCart(){
 		 type: 'GET',  
 		 url: getContextPath() + '/shop/cart/displayMiniCartByCode.html?shoppingCartCode='+cartCode,  
 		 cache:false,
+		 dataType:"json",
 		 error: function(e) { 
 			 $('#cart-box').removeClass('loading-indicator-overlay');/** manage manually cart loading**/
 			 $('#cartShowLoading').hide();
@@ -275,15 +273,19 @@ function displayMiniCart(){
 function removeItemFromMinicart(lineItemId){
 	
 	shoppingCartCode = getCartCode();
+	var res = getContextPath() + '/shop/cart/'+shoppingCartCode+'/item/'+lineItemId;
 	$.ajax({  
-		 type: 'GET',
+		 type: 'POST',
 		 cache:false,
-		 url: getContextPath() + '/shop/cart/removeMiniShoppingCartItem.html?lineItemId='+lineItemId + '&shoppingCartCode=' + shoppingCartCode,  
-		 error: function(e) { 
-			 console.log('error ' + e);
-			 
+		 dataType:"json",
+		 url: res,
+		 error: function(xhr, ajaxOptions, thrownError) {
+			 console.error(res+" 发生错误！",thrownError);
 		 },
 		 success: function(miniCart) {
+
+		 	console.log(miniCart);
+
 			 if(miniCart==null) {
 				 emptyCartLabel();
 			 } else {
@@ -352,6 +354,7 @@ function displayShoppigCartItems(cart, div) {
 }
 
 function displayTotals(cart) {
+
 	if(cart.quantity==0) {
 		emptyCartLabel();
 	} else {
